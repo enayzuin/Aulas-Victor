@@ -5,8 +5,10 @@
 	<session-factory>
 		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="hibernate.connection.url">jdbc:sqlserver:aula-enay.database.windows.net:1433</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost;user=victor;password=Stdr@2022</property>
 		<property name="hibernate.connection.username">victor</property>
 		<property name="hibernate.connection.password">Stdr@2022</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.current_session_context_class">thread</property>
 	</session-factory>
 </hibernate-configuration>
