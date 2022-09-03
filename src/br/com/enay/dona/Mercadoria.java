@@ -1,5 +1,6 @@
 package br.com.enay.dona;
 
+
 public class Mercadoria {
 
 	private String nome;

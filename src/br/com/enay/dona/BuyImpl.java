@@ -11,19 +11,35 @@ public class BuyImpl {
 
 	public static String NOME_MERCADO = "Mecardinho de 1.99";
 
-	public void efetuarCompra(Mercadoria mercadoria) throws IOException {
+	public void efetuarCompra(List<Mercadoria> mercadorias) throws IOException {
+
+		// precisa receber uma lista de mercadoria.
+		// substituir todas as propriedades com o input do banco de dados.
+		// usuario só vai poder selecionar produtos que está no banco de dados.
 
 		double valorDoProduto = 1.99;
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Nome do Cliente: ");
 		String userInput = reader.readLine();
-
 		System.out.println("Bem-Vindo ao mercado " + NOME_MERCADO + ", " + userInput);
-		System.out.print("Digite o nome do produto que deseja comprar: ");
+		System.out.println("Lista de produtos:");
+		mercadorias.forEach(
+				i -> System.out.println("Produto" + " " + i.getNome() + " " + "Está na promoção" + " " + i.getPromocao()
+						+ " " + "Quantidade:" + " " + i.getQuantidade() + " " + "Valor:" + " " + i.getValor()));
+		
+		//formatar a exibição
+
+		System.out.print("Selecione o produto que deseja comprar: ");
 		String produtoDigitado = reader.readLine();
+		
+		// Verificar se o produto digitado existe na lista
+		
 		System.out.println("O produto que você escolheu foi: " + produtoDigitado);
 		System.out.print("Qual a quantidade? ");
+		// Adicionar a uma lista de mercadorias compradas a quantidade 
+		// que o cliente deseja
+		
 		String quantidadeProduto = reader.readLine();
 
 		int quantidade = 0;
@@ -46,6 +62,9 @@ public class BuyImpl {
 		System.out.println("O seu produto é " + produtoDigitado + " a quantidade: " + quantidadeProduto
 				+ " o valor de sua compra é R$ " + total);
 
+		// Validar se o cliente deseja comprar outro item da lista
+		// exibir a lista sem o item que ele ja escolheu
+		
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		double desconto = total * 10 / 100;
@@ -73,10 +92,6 @@ public class BuyImpl {
 		} else {
 			System.out.println("Algum erro aconteceu, tente novamente");
 		}
-
-		// exercicio:
-		// deseja cpf na nota
-		// deseja usar desconto
 
 	}
 
